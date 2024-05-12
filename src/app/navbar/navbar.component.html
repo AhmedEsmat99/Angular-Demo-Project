@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark " >
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/21_Angular_logo_logos-512.png" alt="BootstrapBrain Logo" width="175" height="57">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-around" id="mynavbar">
+      <div class="">
+      <ul class="navbar-nav mr-auto"*ngIf="islogin && role">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/Dashboard']" routerLinkActive="active">Dashboard</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto"*ngIf="islogin && !role">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/emp']" routerLinkActive="active">Employee</a>
+        </li>
+      </ul>
+      </div>
+      <div class="">
+        <a class=" btn btn-primary m-2" *ngIf="!islogin" routerLink="login">Login</a>
+        <a class=" btn btn-primary m-2"  *ngIf="!islogin" routerLink="register">Register</a>
+        <a class=" btn btn-danger m-2" *ngIf="islogin" (click)="logout()"   >Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
